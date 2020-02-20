@@ -18,7 +18,7 @@ class DebitoController extends MasterApiController
     }
 
     public function index(){
-        if(!$data = $this->models->with('fornecedor')->get()){
+        if(!$data = $this->models->with('doc', 'fornecedor', 'subCategoria',  'setor')->get()){
             return response()->json(['error' => 'nada encontrado'], 404);
         }else{
             return response()->json($data);
