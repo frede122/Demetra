@@ -1,25 +1,39 @@
 <?php
 
 namespace App\Models;
+use App\Models\SubCategoria;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 class Debito extends Model
 {
+
+    public function __construct()
+    {
+        
+    }
     protected $fillable = [
         'name', 'descricao'
     ];
     
     public function fornecedor(){
-        return $this->hasOne(Fornecedor::class, 'id', 'fornecedor_id');
+        return $this->hasOne(Fornecedor::class, 'fornecedores_id', 'fornecedores_id');
     }
+
+    
     public function subCategoria(){
-        return $this->hasOne(SubCategoria::class, 'id', 'sub_categoria_id', 'categoria_id');
+        return $this->hasOne(SubCategoria::class, 'sub_categorias_id', 'sub_categorias_id');
     }
+
+    public function categoria(){
+        return $this->hasManyThrough(Categoria::class,  SubCategoria::class, 'categorias_id', 'categorias_id', 'sub_categorias_id', 'sub_categorias_id');
+    }
+
     public function doc(){
-        return $this->hasOne(Doc::class, 'id', 'doc_id');
+        return $this->hasOne(Doc::class, 'docs_id', 'docs_id');
     }
     public function setor(){
-        return $this->hasOne(Setor::class, 'id', 'setor_id');
+        return $this->hasOne(Setor::class, 'setores_id', 'setores_id');
     }
 }

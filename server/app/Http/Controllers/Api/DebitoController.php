@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Controllers\MasterApiController;
 use Illuminate\Http\Request;
 use App\Models\Debito;
+use App\Models\SubCategoria;
 
 class DebitoController extends MasterApiController
 {
@@ -18,10 +19,12 @@ class DebitoController extends MasterApiController
     }
 
     public function index(){
-        if(!$data = $this->models->with('doc', 'fornecedor', 'subCategoria',  'setor')->get()){
+        if(!$data = Debito::with('doc', 'fornecedor', 'categoria', 'subCategoria', 'setor')->get()){
             return response()->json(['error' => 'nada encontrado'], 404);
         }else{
             return response()->json($data);
         }
+           
+
     }
 }
