@@ -17,70 +17,50 @@ class MasterApiController extends Controller
         return response()->json($data);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
-        //
+        if(!$request){
+            response()->json(['Error' => 'Null Fields']);
+        }
+        $data = $this->models->create($request->all());
+        response()->json($data, 201);
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+
     public function show($id)
     {
         $data = $this->models->find($id);
+        if(!$data){
+            return response()->json(['Error' => 'Not Found'], 404);
+        }
         return response()->json($data);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+
     public function update(Request $request, $id)
     {
-        //
+        $data = $this->models->find($id);
+        if(!$data){
+            response()->json(['Error' => 'Not Found'], 404);
+        }
+        $data->update($request->all());
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+
     public function destroy($id)
     {
-        //
+        $data = $this->models->find($id);
+        if(!$data){
+            response()->json(['Error' => 'Not Found'], 404);
+        }
+        if($data->delete()){
+            return response()->json(['status' => 'Successfully deleted'], 205);
+        }else{
+            return response()->json(['status' => 'Not deleted']);
+        }
+
     }
+    
 }
