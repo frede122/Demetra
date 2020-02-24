@@ -14,7 +14,9 @@ class CreateFornecedoresTable extends Migration
     public function up()
     {
         Schema::create('fornecedores', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->engine='InnoDb';
+            $table->bigIncrements('fornecedores_id');
+            $table->string('nome', 50);
             $table->timestamps();
         });
     }

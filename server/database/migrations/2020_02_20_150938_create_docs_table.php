@@ -14,7 +14,9 @@ class CreateDocsTable extends Migration
     public function up()
     {
         Schema::create('docs', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->engine='InnoDb';
+            $table->bigIncrements('docs_id');
+            $table->string('documento', 50);
             $table->timestamps();
         });
     }

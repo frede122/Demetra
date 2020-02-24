@@ -14,7 +14,9 @@ class CreateSetoresTable extends Migration
     public function up()
     {
         Schema::create('setores', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->engine='InnoDb';
+            $table->bigIncrements('setores_id');
+            $table->string('nome', 50);
             $table->timestamps();
         });
     }

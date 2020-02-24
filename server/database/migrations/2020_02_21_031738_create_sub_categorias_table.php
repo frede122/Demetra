@@ -14,10 +14,11 @@ class CreateSubCategoriasTable extends Migration
     public function up()
     {
         Schema::create('sub_categorias', function (Blueprint $table) {
-            $table->bigIncrements('id');
-
-            $table->unsignedBigInteger('categoria_id');
-            $table->foreign('categoria_id')->references('id')->on('categorias')->onUpdate('cascade')->onDelete('cascade');
+            $table->engine='InnoDb';
+            $table->bigIncrements('sub_categorias_id');
+            $table->string('nome', 50);
+            $table->unsignedBigInteger('categorias_id');
+            $table->foreign('categorias_id')->references('categorias_id')->on('categorias')->onUpdate('cascade')->onDelete('cascade');
 
             $table->timestamps();
         });
