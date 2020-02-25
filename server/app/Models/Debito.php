@@ -13,6 +13,9 @@ class Debito extends Model
     {
         
     }
+
+    protected $primaryKey = 'debitos_id';
+
     protected $fillable = [
         'name', 'descricao'
     ];
@@ -27,7 +30,7 @@ class Debito extends Model
     }
 
     public function categoria(){
-        return $this->hasManyThrough(Categoria::class,  SubCategoria::class, 'categorias_id', 'categorias_id', 'sub_categorias_id', 'sub_categorias_id');
+        return $this->hasOneThrough(Categoria::class,  SubCategoria::class, 'categorias_id', 'categorias_id', 'sub_categorias_id', 'sub_categorias_id');
     }
 
     public function doc(){

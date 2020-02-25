@@ -45,7 +45,10 @@ class MasterApiController extends Controller
         if(!$data){
             response()->json(['Error' => 'Not Found'], 404);
         }
-        $data->update($request->all());
+        $newData = $request->all();
+        if($data->update($newData)){
+           return  response()->json($data);
+        }
     }
 
 
