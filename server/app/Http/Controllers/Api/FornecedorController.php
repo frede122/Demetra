@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\MasterApiController;
-use App\Models\Fornecedor;
+use App\Models\Financeiro\Fornecedor;
 use Illuminate\Http\Request;
 
 class FornecedorController extends MasterApiController

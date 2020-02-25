@@ -1,7 +1,7 @@
 <?php
 
-namespace App\Models;
-use App\Models\SubCategoria;
+namespace App\Models\Financeiro; 
+use App\Models\Setor;    
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;

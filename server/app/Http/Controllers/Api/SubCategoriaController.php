@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\MasterApiController;
-use App\Models\SubCategoria;
+use App\Models\Financeiro\SubCategoria;
 use Illuminate\Http\Request;
 
 class SubCategoriaController extends MasterApiController
