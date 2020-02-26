@@ -23,8 +23,11 @@ class MasterApiController extends Controller
         if(!$request){
             response()->json(['Error' => 'Null Fields']);
         }
-        $data = $this->models->create($request->all());
-        response()->json($data, 201);
+        if($data = $this->models->create($request->all())){
+            return response()->json(['status' => 'sucess','data' => $data], 201);
+        }else{
+            return response()->json(['status' => 'fail','data' => $data]);
+        }
     }
 
 
@@ -59,7 +62,7 @@ class MasterApiController extends Controller
             response()->json(['Error' => 'Not Found'], 404);
         }
         if($data->delete()){
-            return response()->json(['status' => 'Successfully deleted'], 205);
+            return response()->json(['status' => 'Successfully deleted', 'data' => $data], 205);
         }else{
             return response()->json(['status' => 'Not deleted']);
         }

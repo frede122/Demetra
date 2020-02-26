@@ -14,29 +14,29 @@ class Debito extends Model
         
     }
 
-    protected $primaryKey = 'debitos_id';
+    protected $primaryKey = 'debito_id';
 
     protected $fillable = [
         'name', 'descricao'
     ];
     
     public function fornecedor(){
-        return $this->hasOne(Fornecedor::class, 'fornecedores_id', 'fornecedores_id');
+        return $this->hasOne(Fornecedor::class, 'fornecedor_id', 'fornecedor_id');
     }
 
     
     public function subCategoria(){
-        return $this->hasOne(SubCategoria::class, 'sub_categorias_id', 'sub_categorias_id');
+        return $this->hasOne(SubCategoria::class, 'sub_categori_id', 'sub_categoria_id');
     }
 
     public function categoria(){
-        return $this->hasOneThrough(Categoria::class,  SubCategoria::class, 'categorias_id', 'categorias_id', 'sub_categorias_id', 'sub_categorias_id');
+        return $this->hasOneThrough(Categoria::class,  SubCategoria::class, 'categori_id', 'categori_id', 'sub_categori_id', 'sub_categorias_id');
     }
 
     public function doc(){
-        return $this->hasOne(Doc::class, 'docs_id', 'docs_id');
+        return $this->hasOne(Doc::class, 'doc_id', 'doc_id');
     }
     public function setor(){
-        return $this->hasOne(Setor::class, 'setores_id', 'setores_id');
+        return $this->hasOne(Setor::class, 'setor_id', 'setor_id');
     }
 }

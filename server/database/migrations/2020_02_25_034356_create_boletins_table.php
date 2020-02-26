@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateBoletimsTable extends Migration
+class CreateBoletinsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -14,7 +14,7 @@ class CreateBoletimsTable extends Migration
     public function up()
     {
         Schema::create('boletins', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->bigIncrements('boletim_id');
             $table->string('nome', 50);
             $table->timestamps();
         });
@@ -27,6 +27,6 @@ class CreateBoletimsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('boletims');
+        Schema::dropIfExists('boletins');
     }
 }

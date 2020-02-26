@@ -6,10 +6,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class SubCategoria extends Model
 {
-    protected $primaryKey = 'sub_categorias_id';
+    protected $primaryKey = 'sub_categoria_id';
     protected $fillable = [
         'nome',
-        'categorias_id'
+        'categoria_id'
     ];
     
     public function categoria(){

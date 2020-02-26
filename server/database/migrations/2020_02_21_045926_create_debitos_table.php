@@ -15,26 +15,26 @@ class CreateDebitosTable extends Migration
     {
         Schema::create('debitos', function (Blueprint $table) {
             $table->engine='InnoDb';
-            $table->bigIncrements('debitos_id');
+            $table->bigIncrements('debito_id');
 
-            $table->unsignedBigInteger('docs_id');
-            $table->foreign('docs_id')->references('docs_id')->on('docs')->onUpdate('cascade')->onDelete('cascade');
+            $table->unsignedBigInteger('doc_id');
+            $table->foreign('doc_id')->references('doc_id')->on('docs')->onUpdate('cascade')->onDelete('cascade');
 
-            $table->integer('mes');
+            $table->date('data');
 
-            $table->unsignedBigInteger('fornecedores_id');
-            $table->foreign('fornecedores_id')->references('fornecedores_id')->on('fornecedores')->onUpdate('cascade')->onDelete('cascade');
+            $table->unsignedBigInteger('fornecedor_id');
+            $table->foreign('fornecedor_id')->references('fornecedor_id')->on('fornecedores')->onUpdate('cascade')->onDelete('cascade');
 
             $table->string('descricao', 400);
             
             $table->float('quantidade');
             $table->float('valor_unitario');
 
-            $table->unsignedBigInteger('setores_id');
-            $table->foreign('setores_id')->references('setores_id')->on('setores')->onUpdate('cascade')->onDelete('cascade');
+            $table->unsignedBigInteger('setor_id');
+            $table->foreign('setor_id')->references('setor_id')->on('setores')->onUpdate('cascade')->onDelete('cascade');
 
-            $table->unsignedBigInteger('sub_categorias_id');
-            $table->foreign('sub_categorias_id')->references('sub_categorias_id')->on('sub_categorias')->onUpdate('cascade')->onDelete('cascade');
+            $table->unsignedBigInteger('sub_categoria_id');
+            $table->foreign('sub_categoria_id')->references('sub_categoria_id')->on('sub_categorias')->onUpdate('cascade')->onDelete('cascade');
 
             $table->timestamps();
         });
