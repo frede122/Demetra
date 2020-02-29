@@ -13,6 +13,7 @@ class FornecedorController extends MasterApiController
     protected $request;
     public function __construct(Fornecedor $fornecedor, Request $request)
     {
+        // $this->middleware('jwt.auth');
         $this->models = $fornecedor;
         $this->request = $request;
     }

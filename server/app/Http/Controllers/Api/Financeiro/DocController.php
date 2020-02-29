@@ -13,6 +13,9 @@ class DocController extends MasterApiController
     protected $request;
     public function __construct(Doc $doc, Request $request)
     {
+        // $this->middleware('jwt.auth');
+        // Restringe uma controller inteira com jwt independente da rota
+        
         $this->models = $doc;
         $this->request = $request;
     }

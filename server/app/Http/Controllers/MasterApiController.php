@@ -11,6 +11,8 @@ class MasterApiController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+
     public function index()
     {
         $data = $this->models->all();
@@ -24,7 +26,7 @@ class MasterApiController extends Controller
             response()->json(['Error' => 'Null Fields']);
         }
         if($data = $this->models->create($request->all())){
-            return response()->json(['status' => 'sucess','data' => $data], 201);
+            return response()->json(['status' => 'success','data' => $data], 201);
         }else{
             return response()->json(['status' => 'fail','data' => $data]);
         }
