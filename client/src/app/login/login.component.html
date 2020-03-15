@@ -1,0 +1,32 @@
+<section class="container">
+    <header>
+        <h1>DEMETRA</h1>
+        <h3>Software de gestão agropecuaria</h3>
+    </header>
+
+    <mat-card>
+        <p>login works!</p>
+        <form [formGroup]="form">
+            <p  fxLayoutAlign="space-between" >
+                <mat-form-field appearance="outline" class="row inputArea"  >
+                    <mat-label>Enter your email</mat-label>
+                    <input matInput placeholder="pat@example.com" formControlName="email" required>
+                    <mat-error >{{getErrorMessage()}}</mat-error>
+                </mat-form-field>
+            </p>
+            <P>
+                <mat-form-field appearance="outline"class="inputArea ">
+                    <mat-label>Enter your password</mat-label>
+                    <input  [ngClass]="!hide ? 'animated fadeInUp' : 'animated fadeInDown'" matInput formControlName="password" [type]="hide ? 'password' : 'text'">
+                </mat-form-field>
+                <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                    <mat-icon  [ngClass]="hide ? 'animated flipInY' : 'animated flipInX'">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                </button>
+            </P>
+        </form>
+            <button class="row btn-login" (click)="login()" mat-flat-button color="primary" >
+                LOGIN <mat-icon>send</mat-icon>
+            </button>
+            <a class="row" href="#">Esqueceu a senha!</a>    
+    </mat-card>
+</section>

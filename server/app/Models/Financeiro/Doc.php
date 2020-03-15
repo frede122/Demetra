@@ -9,6 +9,7 @@ class Doc extends Model
     protected $primaryKey = 'doc_id';
     protected $fillable = [
         'documento',
-        'mes_referencia'
+        'mes_referencia',
+        'ano_referencia'
     ];
 }

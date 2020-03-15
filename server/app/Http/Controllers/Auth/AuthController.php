@@ -4,7 +4,9 @@ namespace App\Http\Controllers\Auth;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Controller;
-use JWTAuth;
+// use JWTAuth;
+use Tymon\JWTAuth\Facades\JWTAuth as FacadesJWTAuth;
+use Tymon\JWTAuth\JWTAuth;
 
 class AuthController extends Controller
 {
@@ -13,8 +15,10 @@ class AuthController extends Controller
      *
      * @return void
      */
-    public function __construct()
+    protected $jwtAuth;
+    public function __construct(JWTAuth $jwtAuth)
     {
+        $this->jwtAuth = $jwtAuth;
         $this->middleware('auth:api', ['except' => ['login']]);
     }
 
@@ -28,12 +32,13 @@ class AuthController extends Controller
         $credentials = $request->only(['email', 'password']);
 
         // if (! $token = auth()->attempt($credentials)) {
-        if (! $token = JWTAuth::attempt($credentials)) {
+        if (! $token = $this->jwtAuth->attempt($credentials)) {
             return response()->json(['error' => 'Unauthorized'], 401);
         }
-
         // return $this->respondWithToken($token);
-        return response()->json(compact('token'));
+        // return response()->json(['token' => $token]);
+        $user = auth()->user();
+        return response()->json(compact('token', 'user'));
     }
 
     /**

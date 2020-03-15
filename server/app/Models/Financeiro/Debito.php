@@ -17,7 +17,15 @@ class Debito extends Model
     protected $primaryKey = 'debito_id';
 
     protected $fillable = [
-        'name', 'descricao'
+        'doc_id', 
+        'data',
+        'fornecedor_id',
+        'descricao',
+        'quantidade', 
+        'valor_unitario', 
+        'setor_id', 
+        'sub_categoria_id'
+        
     ];
     
     public function fornecedor(){

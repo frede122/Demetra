@@ -1,0 +1,53 @@
+@charset "UTF-8";
+@import url('../../../node_modules/animate.css/animate.min.css');
+
+mat-card {
+    width: 350px;
+    float: right;
+    margin: auto;
+    height: 100%;
+    background: rgba(255,255,255, 0.9);
+    /* position: absolute; */
+    
+}
+
+
+.inputArea{
+    width: 80%;
+}
+
+.row {
+    display: block;
+}
+.btn-login{
+    margin-bottom: 10px;
+}
+header{
+    margin: auto;
+    font-size: 80px;
+    position: relative;
+    float: left;
+    top: 10%;
+    left: 12%;
+}
+h1{
+    color: rgb(209, 209, 209);
+}
+h3{
+    margin: auto;
+    font-size: 20px;
+    position: relative;
+    float: left;
+    top: 0%;
+    left: 12%;
+}
+.container{ 
+    position: relative;
+    background: url('../images/boi.jpg');
+    background-attachment: fixed;
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}

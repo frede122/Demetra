@@ -16,7 +16,7 @@ class CreateCategoriasTable extends Migration
         Schema::create('categorias', function (Blueprint $table) {
             $table->engine='InnoDb';
             $table->bigIncrements('categoria_id');
-            $table->string('nome', 50);
+            $table->string('nome_categoria', 50);
             $table->timestamps();
         });
     }

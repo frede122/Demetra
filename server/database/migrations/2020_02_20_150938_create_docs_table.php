@@ -18,6 +18,7 @@ class CreateDocsTable extends Migration
             $table->bigIncrements('doc_id');
             $table->string('documento', 50);
             $table->integer('mes_referencia');
+            $table->integer('ano_referencia');
             $table->timestamps();
         });
     }
