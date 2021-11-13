@@ -18,7 +18,7 @@ Route::group([
             Route::apiResource('fornecedor', 'FornecedorController');
             Route::apiResource('categoria', 'CategoriaController');
             Route::apiResource('sub-categoria', 'SubCategoriaController');
-    });
+        });
 
     Route::namespace('Pecuaria')->group(function (){
         Route::apiResource('boletim', 'BoletimController');
