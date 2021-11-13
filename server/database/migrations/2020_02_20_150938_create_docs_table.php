@@ -15,7 +15,7 @@ class CreateDocsTable extends Migration
     {
         Schema::create('docs', function (Blueprint $table) {
             $table->engine='InnoDb';
-            $table->bigIncrements('doc_id');
+            $table->bigIncrements('docs_id');
             $table->string('documento', 50);
             $table->integer('mes_referencia');
             $table->integer('ano_referencia');

@@ -9,6 +9,7 @@ class Setor extends Model
     protected $table = 'setores';
     protected $primaryKey = 'setor_id';
     protected $fillable = [
-        'nome'
+        'nome',
+        'endereco'
     ];
 }
