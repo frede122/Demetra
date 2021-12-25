@@ -14,6 +14,7 @@ class CreateDebitosTable extends Migration
     public function up()
     {
         Schema::create('debitos', function (Blueprint $table) {
+            $table->engine='InnoDb';
             $table->bigIncrements('debito_id');
             $table->unsignedBigInteger('docs_id');
             $table->foreign('docs_id')->references('docs_id')->on('docs')->onUpdate('cascade')->onDelete('cascade');

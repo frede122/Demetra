@@ -2,10 +2,13 @@
 
 namespace App\Http\Controllers\Api\Maquinario;
 
-use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
+use App\Http\Controllers\MasterApiController;
+use App\Models\Maquinario\Abastecimento;
 
-class AbastecimentoController extends Controller
+class AbastecimentoController extends MasterApiController
 {
-    //
+    public function __construct(Abastecimento $abastecimento)
+    {
+        $this->models = $abastecimento;
+    }
 }
