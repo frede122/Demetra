@@ -4,8 +4,8 @@
 mat-card {
     width: 350px;
     float: right;
-    margin: auto;
-    height: 100%;
+    margin: 3% 15px;
+    height: auto;
     background: rgba(255,255,255, 0.9);
     /* position: absolute; */
     
@@ -23,18 +23,18 @@ mat-card {
     margin-bottom: 10px;
 }
 header{
-    margin: auto;
-    font-size: 80px;
+    /* margin: auto; */
+    font-size: 70px;
     position: relative;
     float: left;
     top: 10%;
     left: 12%;
 }
 h1{
-    color: rgb(209, 209, 209);
+    color: rgb(255, 255, 255);
 }
 h3{
-    margin: auto;
+    /* margin: auto; */
     font-size: 20px;
     position: relative;
     float: left;
@@ -43,11 +43,18 @@ h3{
 }
 .container{ 
     position: relative;
-    background: url('../images/boi.jpg');
+    background: url('../images/bois.jpg');
     background-attachment: fixed;
     background-size: cover;
     background-repeat: no-repeat;
     width: 100%;
-    height: 100%;
-    overflow: hidden;
+    height: auto;
+    min-height: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    /* align-items: center; */
+    /* overflow: hidden; */
+    
 }
