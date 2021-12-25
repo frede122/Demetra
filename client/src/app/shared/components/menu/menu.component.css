@@ -1,0 +1,14 @@
+
+.container-menu .bar {
+    height: 45px;
+    background-color: green;
+    color: white;
+}
+
+.container-menu {
+    height: 100%;
+}
+
+.container-menu .bar mat-icon {
+    font-size: 40px;
+}

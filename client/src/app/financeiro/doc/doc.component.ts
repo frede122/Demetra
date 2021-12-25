@@ -1,5 +1,6 @@
 import { Component, OnInit, Injectable } from '@angular/core';
 import { HttpClient, HttpHandler } from '@angular/common/http';
+import { DocService } from '../../service/financeiro/doc.service';
 
 @Component({
   selector: 'app-doc',
@@ -8,13 +9,17 @@ import { HttpClient, HttpHandler } from '@angular/common/http';
 })
 export class DocComponent implements OnInit {
 
-  constructor(private http: HttpClient) {
+  valor: Array<any>;
+  a: any;
+  constructor(private http: HttpClient, private doc: DocService) {
+    this.a = doc.getAll().subscribe(dados => this.valor = dados);
   }
 
 
-  valor: Array<any>;
   ngOnInit() {
-    const a  = this.http.get<any[]>('http://127.0.0.1:8000/api/doc').subscribe(dados => this.valor = dados);
+
+    
+    // const a  = this.http.get<any[]>('http://127.0.0.1:8000/api/doc').subscribe(dados => this.valor = dados);
   }
 
 }

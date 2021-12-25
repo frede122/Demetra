@@ -1,0 +1,15 @@
+    <mat-drawer-container [hasBackdrop]="true" class="container-menu" autosize>
+        <div class="bar">
+            <button mat-icon-button color="blue" type="button" mat-button (click)="drawer.toggle()">
+                <mat-icon>menu</mat-icon>
+            </button>
+        </div>
+        <mat-drawer #drawer class="example-sidenav" mode="push">
+          <p>Auto-resizing sidenav</p>
+          <p *ngIf="showFiller">Lorem, ipsum dolor sit amet consectetur.</p>
+          <button (click)="showFiller = !showFiller" mat-raised-button>
+            Toggle extra text
+          </button>
+        </mat-drawer>
+        <ng-content></ng-content>
+    </mat-drawer-container>
