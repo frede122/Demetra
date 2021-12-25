@@ -8,7 +8,7 @@ class SubCategoria extends Model
 {
     protected $primaryKey = 'sub_categoria_id';
     protected $fillable = [
-        'nome',
+        'nome_subcategoria',
         'categoria_id'
     ];
     

@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Doc extends Model
 {
-    protected $primaryKey = 'doc_id';
+    protected $primaryKey = 'docs_id';
     protected $fillable = [
         'documento',
         'mes_referencia',

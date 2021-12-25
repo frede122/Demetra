@@ -6,7 +6,7 @@ import { NgModule } from '@angular/core';
 import { HttpClient, HttpHandler, HTTP_INTERCEPTORS, HttpBackend, HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
-import { DocComponent } from './financeiro/doc/doc.component';
+// import { DocComponent } from './financeiro/doc/doc.component';
 import { AuthService } from './service/auth.service';
 import { LoginComponent } from './login/login.component';
 import { TokenInterceptor } from './interceptors/token.interceptors';
@@ -21,19 +21,21 @@ import {MatButtonModule} from '@angular/material/button';
 import { importType } from '@angular/compiler/src/output/output_ast';
 import { AuthGuard } from './guards/auth.guard';
 import { LoginModule } from './login/login.module';
+import { FinanceiroModule } from './financeiro/financeiro.module';
+import { SharedModule } from './shared/shared.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    DocComponent,
   ],
   imports: [
 
     LoginModule,
+    FinanceiroModule,
+    SharedModule,
+
     AppRoutingModule,
     RouterModule,
-
-
     BrowserModule,
     HttpClientModule,
     BrowserAnimationsModule,
