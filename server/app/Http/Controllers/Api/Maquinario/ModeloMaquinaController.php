@@ -2,10 +2,13 @@
 
 namespace App\Http\Controllers\Api\Maquinario;
 
-use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
+use App\Http\Controllers\MasterApiController;
+use App\Models\Maquinario\ModeloMaquina;
 
-class ModeloMaquinaController extends Controller
+class ModeloMaquinaController extends MasterApiController
 {
-    //
+    public function __construct(ModeloMaquina $modeloMaquina)
+    {
+        $this->models = $modeloMaquina;
+    }
 }
