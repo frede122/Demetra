@@ -14,7 +14,16 @@ class CreateHorimetrosTable extends Migration
     public function up()
     {
         Schema::create('horimetros', function (Blueprint $table) {
-            $table->bigIncrements('id');
+
+            $table->engine='InnoDb';
+            $table->bigIncrements('horimetro_id');
+            $table->unsignedBigInteger('maquina_id');
+            $table->foreign('maquina_id')->references('maquina_id')->on('maquinas')->onUpdate('cascade')->onDelete('cascade');
+            $table->float('hora_inicio');
+            $table->float('hora_fim');
+            $table->float('valor_hora');
+            $table->string('descricao', 200);
+
             $table->timestamps();
         });
     }

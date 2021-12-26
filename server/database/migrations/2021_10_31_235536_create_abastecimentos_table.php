@@ -14,7 +14,16 @@ class CreateAbastecimentosTable extends Migration
     public function up()
     {
         Schema::create('abastecimentos', function (Blueprint $table) {
-            $table->bigIncrements('id');
+
+            $table->engine='InnoDb';
+            $table->bigIncrements('abastecimento_id');
+            $table->unsignedBigInteger('maquina_id');
+            $table->foreign('maquina_id')->references('maquina_id')->on('maquinas')->onUpdate('cascade')->onDelete('cascade');
+            $table->float('litros');
+            $table->date('data');
+            $table->date('hora');
+            $table->float('horimetro');
+
             $table->timestamps();
         });
     }

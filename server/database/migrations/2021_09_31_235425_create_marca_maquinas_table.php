@@ -16,7 +16,8 @@ class CreateMarcaMaquinasTable extends Migration
         Schema::create('marca_maquinas', function (Blueprint $table) {
             $table->engine='InnoDb';
             $table->bigIncrements('marca_maquina_id');
-            $table->string('nome_marca_maquina');
+            $table->string('nome', 100);
+            
             $table->timestamps();
         });
     }

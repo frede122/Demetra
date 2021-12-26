@@ -14,10 +14,13 @@ class CreateModeloMaquinasTable extends Migration
     public function up()
     {
         Schema::create('modelo_maquinas', function (Blueprint $table) {
+
             $table->engine='InnoDb';
             $table->bigIncrements('modelo_maquina_id');
             $table->unsignedBigInteger('marca_maquina_id');
             $table->foreign('marca_maquina_id')->references('marca_maquina_id')->on('marca_maquinas')->onUpdate('cascade')->onDelete('cascade');
+            $table->string('nome', 100);
+
             $table->timestamps();
         });
     }

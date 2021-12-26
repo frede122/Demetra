@@ -13,8 +13,16 @@ class CreateManutencaosTable extends Migration
      */
     public function up()
     {
-        Schema::create('manutencaos', function (Blueprint $table) {
-            $table->bigIncrements('id');
+        Schema::create('manutencoes', function (Blueprint $table) {
+            
+            $table->engine='InnoDb';
+            $table->bigIncrements('manutencao_id');
+            $table->unsignedBigInteger('maquina_id');
+            $table->foreign('maquina_id')->references('maquina_id')->on('maquinas')->onUpdate('cascade')->onDelete('cascade');
+            $table->date('data');
+            $table->string('descricao', 200);
+            $table->float('valor');
+
             $table->timestamps();
         });
     }
