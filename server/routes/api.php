@@ -29,6 +29,7 @@ Route::group([
             Route::apiResource('maquina', 'MaquinaController');
             Route::apiResource('marca-maquina', 'MarcaMaquinaController');
             Route::apiResource('modelo-maquina', 'ModeloMaquinaController');
+            Route::apiResource('tipo-maquina', 'TipoMaquinaController');
         });
 
     Route::namespace('Pecuaria')->group(function (){

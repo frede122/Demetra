@@ -5,6 +5,8 @@ import { AuthGuard } from './guards/auth.guard';
 import { DocComponent } from './financeiro/doc/doc.component';
 import { MainComponent } from './shared/main/main.component';
 import { MenuComponent } from './shared/components/menu/menu.component';
+import { CadMaquinaComponent } from './maquinario/maquina/cad-maquina/cad-maquina.component';
+import { ListMaquinaComponent } from './maquinario/maquina/list-maquina/list-maquina.component';
 
 
 const routes: Routes = [
@@ -15,14 +17,16 @@ const routes: Routes = [
         canActivate: [AuthGuard],
         children: [
             { path: 'doc', component: DocComponent, canActivate: [AuthGuard] },
+            { path: 'maquina',  children: [
+                { path: 'cad-maquina', component: CadMaquinaComponent  },
+                { path: 'cad-maquina/:id', component: CadMaquinaComponent },
+                { path: 'list-maquina', component: ListMaquinaComponent  },
+                { path: '', component: ListMaquinaComponent, }
+            ]}
         ]
-
-  
     },
-    // { path: 'main', component: DocComponent, canActivate: [AuthGuard] },
-    // { path: 'doc', component: DocComponent, canActivate: [AuthGuard] },
-
-    { path: '',   redirectTo: '/login', pathMatch: 'full' }
+    { path: '',   redirectTo: '/login', pathMatch: 'full' },
+    // { path: '/*',  redirectTo: '/main'}
 ];
 
 @NgModule({

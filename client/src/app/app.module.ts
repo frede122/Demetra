@@ -1,29 +1,29 @@
 import { AppRoutingModule } from './app.routing.module';
 
-import { RouterModule, Routes, RouterOutlet } from '@angular/router';
+import { RouterModule, RouterOutlet } from '@angular/router';
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
-import { HttpClient, HttpHandler, HTTP_INTERCEPTORS, HttpBackend, HttpClientModule } from '@angular/common/http';
+import { LOCALE_ID, NgModule } from '@angular/core';
+import { 
+  HttpClient, 
+  HTTP_INTERCEPTORS, 
+  HttpClientModule 
+} from '@angular/common/http';
 
 import { AppComponent } from './app.component';
-// import { DocComponent } from './financeiro/doc/doc.component';
 import { AuthService } from './service/auth.service';
-import { LoginComponent } from './login/login.component';
 import { TokenInterceptor } from './interceptors/token.interceptors';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import localePt from '@angular/common/locales/pt';
+import { registerLocaleData } from '@angular/common';
 
-import {MatFormFieldModule} from '@angular/material/form-field'; 
-import { ReactiveFormsModule } from '@angular/forms';
-import {MatIconModule} from '@angular/material/icon'; 
-import { MatSliderModule } from '@angular/material/slider';
-import {MatInputModule} from '@angular/material/input';
-import {MatButtonModule} from '@angular/material/button'; 
-import { importType } from '@angular/compiler/src/output/output_ast';
 import { AuthGuard } from './guards/auth.guard';
 import { LoginModule } from './login/login.module';
 import { FinanceiroModule } from './financeiro/financeiro.module';
 import { SharedModule } from './shared/shared.module';
+import { MaquinarioModule } from './maquinario/maquinario.module';
 
+
+registerLocaleData(localePt);
 @NgModule({
   declarations: [
     AppComponent,
@@ -32,6 +32,7 @@ import { SharedModule } from './shared/shared.module';
 
     LoginModule,
     FinanceiroModule,
+    MaquinarioModule,
     SharedModule,
 
     AppRoutingModule,
@@ -49,7 +50,9 @@ import { SharedModule } from './shared/shared.module';
     AuthGuard,
     RouterOutlet,
     { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true },
+    { provide: LOCALE_ID, useValue: 'pt-BR'}
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+ }

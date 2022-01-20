@@ -1,0 +1,48 @@
+.card-content{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    width: 350px;
+    max-width: 80%;
+    margin: 10px auto;
+}
+
+.mat-green {
+    color: white;
+    background-color: rgb(2, 145, 2);
+}
+.mat-green:hover {
+    color: white;
+    background-color: rgba(2, 145, 2, 0.829);
+}
+
+.mat-cancel:hover {
+    color: white;
+    background-color: rgb(167, 167, 167);
+}
+
+.mat-cancel {
+    color: rgb(0, 0, 0);
+    background-color: rgba(221, 221, 221, 0.842);
+}
+
+.field-80{
+    position: relative;
+    width: 300px;
+    margin: 0;
+    height: 50px;
+}
+
+button {
+    margin: 10px 10px;
+    min-width: 100px
+}
+.button-80 {
+    position: relative;
+    width: 80%;
+}
+mat-icon {
+    color: rgb(107, 107, 107);
+    margin-right: 10px;
+}

@@ -44,7 +44,7 @@ export class AuthService {
         localStorage.setItem('user', JSON.stringify(data.user));
         this.userAuth = true;
         this.showMenu.emit(this.userAuth);
-        this.router.navigate(['/doc']);
+        this.router.navigate(['/main']);
       });
   }
 }

@@ -1,5 +1,4 @@
-import { Model } from "../Model";
-
+import { Model } from "../model";
 
 export class Doc extends Model {
 

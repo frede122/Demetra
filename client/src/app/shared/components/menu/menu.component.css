@@ -12,3 +12,21 @@
 .container-menu .bar mat-icon {
     font-size: 40px;
 }
+
+a {
+    text-decoration: none;
+}
+mat-list-item, mat-panel-title{
+    color: green !important;
+    transition: 0.5s;
+}
+mat-list-item:hover{
+    color: rgb(32, 138, 32) ;
+    background-color: rgb(240, 240, 240)!important;
+}
+mat-drawer mat-icon{
+    color: rgba(0, 128, 0, 0.623);
+    margin: 0 5px;
+}
+
+.mat-expansion-panel:not([class*=mat-elevation-z]) {  box-shadow: none;}
