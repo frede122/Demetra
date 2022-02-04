@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateMarcaMaquinasTable extends Migration
+class CreateTipoMaquinasTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,11 @@ class CreateMarcaMaquinasTable extends Migration
      */
     public function up()
     {
-        Schema::create('marca_maquinas', function (Blueprint $table) {
-            $table->bigIncrements('id');
+        Schema::create('tipo_maquinas', function (Blueprint $table) {
+            $table->engine='InnoDb';
+            $table->bigIncrements('tipo_maquina_id');
+            $table->string('nome', 100);
+
             $table->timestamps();
         });
     }
@@ -26,6 +29,6 @@ class CreateMarcaMaquinasTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('marca_maquinas');
+        Schema::dropIfExists('tipo_maquinas');
     }
 }

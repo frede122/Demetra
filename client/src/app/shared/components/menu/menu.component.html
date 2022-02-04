@@ -4,12 +4,43 @@
                 <mat-icon>menu</mat-icon>
             </button>
         </div>
-        <mat-drawer #drawer class="example-sidenav" mode="push">
-          <p>Auto-resizing sidenav</p>
-          <p *ngIf="showFiller">Lorem, ipsum dolor sit amet consectetur.</p>
-          <button (click)="showFiller = !showFiller" mat-raised-button>
-            Toggle extra text
-          </button>
+        <mat-drawer #drawer mode="push">
+          <mat-selection-list>
+            <a routerLink="/main/">
+              <mat-list-item >
+               Inicio
+              </mat-list-item>
+            </a>
+
+          <mat-accordion class="example-headers-align" multi>
+            <mat-expansion-panel>
+              <mat-expansion-panel-header>
+                <mat-panel-title>
+                  Maquinarios
+                </mat-panel-title>
+                <mat-icon>account_circle</mat-icon>
+              </mat-expansion-panel-header>
+              <a routerLink="/main/maquina/cad-maquina">
+                <mat-list-item>
+                  Cadastrar Maquina
+                </mat-list-item>
+              </a>
+              <a routerLink="/main/maquina/list-maquina">
+                <mat-list-item >
+                  Listar Maquinas
+                </mat-list-item>
+              </a>
+            </mat-expansion-panel>
+          </mat-accordion>
+
+          <a routerLink="/main/doc">
+            <mat-list-item >
+              Doc
+            </mat-list-item>
+           </a>
+
+        </mat-selection-list>
+
         </mat-drawer>
         <ng-content></ng-content>
     </mat-drawer-container>

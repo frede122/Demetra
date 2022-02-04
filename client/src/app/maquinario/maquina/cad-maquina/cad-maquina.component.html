@@ -1,0 +1,50 @@
+    <form [formGroup]="form" class="card-content">
+        <h2>{{isNew ? 'Cadastrar' : 'Alterar'}} Maquina</h2>
+        <p>
+            <mat-form-field class="field-300" appearance="standard">
+                <mat-label>Nome</mat-label>
+                <input matInput  formControlName="nome" placeholder="exemplo: caminhão 03">
+                <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+                <mat-hint>Nome do maquinario</mat-hint>
+            </mat-form-field>
+        </p>
+        <p>
+            <mat-form-field  class="field-300" appearance="standard">
+                <mat-label>Data da Aquisição</mat-label>
+                <input matInput  formControlName="ano" [matDatepicker]="picker">
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker startView="year" [startAt]="startDate"></mat-datepicker>
+            </mat-form-field>
+        </p>
+        <p>
+            <mat-form-field class="field-262" appearance="standard">
+                <mat-label>Tipo de Maquinario</mat-label>
+                <mat-select formControlName="tipo" required>
+                    <mat-option>--</mat-option>
+                    <mat-option *ngFor="let tipo of tipoMaquinas" [value]="tipo.tipo_maquina_id">
+                        {{tipo.nome}}
+                    </mat-option>
+                </mat-select>
+                <mat-error *ngIf="form.hasError('required')">Por favor escolha um tipo de maquinario</mat-error>
+                <mat-hint>{{form.value.tipo}}</mat-hint>
+            </mat-form-field>
+            <button class="button-add" (click)="openAddTipoMaquinario()" mat-mini-fab color="green"><mat-icon>add</mat-icon></button>
+        </p>
+        <p class="button-flex-container">
+
+            <mat-form-field class="field-262" appearance="standard">
+                <mat-label>Modelo</mat-label>
+                <mat-select  formControlName="modelo" required>
+                    <mat-option>--</mat-option>
+                    <mat-option *ngFor="let modeloMaquina of modeloMaquinas" [value]="modeloMaquina">
+                        {{modeloMaquina.nome}}
+                    </mat-option>
+                </mat-select>
+                <mat-error *ngIf="form.hasError('required')">Por favor escolha um modelo de maquinario</mat-error>
+                <mat-hint>{{form.value?.modelo}}</mat-hint>
+
+            </mat-form-field>
+            <button class="button-add" (click)="openAddModelo()" mat-mini-fab color="green"><mat-icon>add</mat-icon></button> 
+        </p>
+        <button class="button-salvar" mat-raised-button (click)="isNew ? save() : update()" class="button-80" color="green">{{isNew ? 'Salvar' : 'Alterar'}}</button>
+    </form>

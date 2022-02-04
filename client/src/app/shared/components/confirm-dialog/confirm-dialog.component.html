@@ -1,0 +1,9 @@
+<h1 mat-dialog-title>Excluir {{title}}? </h1>
+<div mat-dialog-content>
+  <p>{{message}}</p>
+
+</div>
+<div mat-dialog-actions class="confirm">
+  <button mat-button (click)="cancel()" cdkFocusInitial>Não</button>
+  <button mat-button (click)="confirm()" >Sim</button>
+</div>

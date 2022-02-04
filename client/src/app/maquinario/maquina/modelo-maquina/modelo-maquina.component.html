@@ -1,0 +1,19 @@
+<form class="form"  [formGroup]="form">
+    <mat-form-field class="full-width" appearance="fill">
+      <mat-label>Modelo da Maquina</mat-label>
+      <input matInput formControlName="nome" #message maxlength="256" placeholder="Ex. J145">
+    </mat-form-field>
+    <mat-form-field class="full-width" appearance="standard">
+      <mat-label>Marca de Maquinario</mat-label>
+      <mat-select formControlName="marca" required>
+          <mat-option>--</mat-option>
+          <mat-option *ngFor="let marca of marcaMaquinas" [value]="marca.marca_maquina_id">
+              {{marca.nome}}
+          </mat-option>
+      </mat-select>
+      <mat-error *ngIf="form.hasError('required')">Por favor escolha um marca de maquinario</mat-error>
+      <mat-hint>{{form.value.marca}}</mat-hint>
+    </mat-form-field>
+    <button mat-flat-button color="green" (click)="salvar()"><mat-icon>check</mat-icon> Salvar</button>
+    <button mat-flat-button color="cancel" (click)="closeWindow()"><mat-icon>cancel</mat-icon> Cancelar</button>
+</form>

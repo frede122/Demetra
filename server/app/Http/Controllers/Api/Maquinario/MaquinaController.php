@@ -11,4 +11,14 @@ class MaquinaController extends MasterApiController
     {
         $this->models = $maquina;
     }
+
+    public function index(){
+        if(!$data = Maquina::with('modeloMaquina')->get()){
+            return response()->json(['error' => 'nada encontrado'], 404);
+        }else{
+            return response()->json($data);
+        }
+           
+
+    }
 }

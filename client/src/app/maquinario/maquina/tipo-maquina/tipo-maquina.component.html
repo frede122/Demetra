@@ -1,0 +1,8 @@
+<form class="form"  [formGroup]="form">
+    <mat-form-field class="full-width" appearance="fill">
+      <mat-label>Tipo da Maquina</mat-label>
+      <input matInput formControlName="nome" #message maxlength="256" placeholder="Ex. Trator">
+    </mat-form-field>
+    <button mat-flat-button color="green" (click)="salvar()"><mat-icon>check</mat-icon> Salvar</button>
+    <button mat-flat-button color="cancel" (click)="closeWindow()"><mat-icon>cancel</mat-icon> Cancelar</button>
+</form>
