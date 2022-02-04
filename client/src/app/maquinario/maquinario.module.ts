@@ -12,7 +12,11 @@ import {
   MatSelectModule,
   MatButtonModule,
   MatSnackBarModule,
-  MatTableModule
+  MatTableModule,
+  MatMenuModule,
+  MatPaginatorModule,
+  MatProgressSpinnerModule,
+  MatSortModule
   
 } from '@angular/material';
 
@@ -20,6 +24,8 @@ import { CadMaquinaComponent } from './maquina/cad-maquina/cad-maquina.component
 import { MarcaMaquinaComponent } from './maquina/marca-maquina/marca-maquina.component';
 import { ModeloMaquinaComponent } from './maquina/modelo-maquina/modelo-maquina.component';
 import { ListMaquinaComponent } from './maquina/list-maquina/list-maquina.component';
+import { RouterModule } from '@angular/router';
+import { TipoMaquinaComponent } from './maquina/tipo-maquina/tipo-maquina.component';
 
 
 
@@ -28,7 +34,7 @@ import { ListMaquinaComponent } from './maquina/list-maquina/list-maquina.compon
     CadMaquinaComponent, 
     MarcaMaquinaComponent, 
     ModeloMaquinaComponent, 
-    ListMaquinaComponent
+    ListMaquinaComponent, TipoMaquinaComponent
   ],
   imports: [
     CommonModule,
@@ -43,7 +49,18 @@ import { ListMaquinaComponent } from './maquina/list-maquina/list-maquina.compon
     MatButtonModule,
     MatSnackBarModule,
     MatTableModule,
-    FormsModule
-  ]
+    MatMenuModule,
+    MatPaginatorModule,    
+    MatProgressSpinnerModule,
+    MatSortModule,
+    FormsModule,
+    RouterModule
+  ],
+  entryComponents: [
+    MarcaMaquinaComponent,
+    CadMaquinaComponent,
+    ModeloMaquinaComponent,
+    TipoMaquinaComponent
+  ],
 })
 export class MaquinarioModule { }

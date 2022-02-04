@@ -1,0 +1,8 @@
+.mat-green{
+    color: white;
+    background-color: rgb(2, 145, 2);
+}
+.mat-green:hover {
+    color: white;
+    background-color: rgba(2, 145, 2, 0.829);
+}

@@ -1,53 +1,88 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, Inject, OnInit, ViewChild } from '@angular/core';
+import { MaquinaService } from 'src/app/service/maquinario/maquina.service';
+import {MatPaginator} from '@angular/material/paginator';
+import { MatDialog, MatSort, Sort, MatTableDataSource} from '@angular/material';
+import { Maquina } from 'src/app/models/maquinario/Maquina';
+import { ConfirmDialogComponent } from 'src/app/shared/components/confirm-dialog/confirm-dialog.component';
+import { LiveAnnouncer } from '@angular/cdk/a11y';
+import { CadMaquinaComponent } from '../cad-maquina/cad-maquina.component';
+import { ActivatedRoute } from '@angular/router';
 
 
-const ELEMENT_DATA: any = [
-  {position: 1, name: 'Hydrogen', weight: 1.0079, symbol: 'H'},
-  {position: 2, name: 'Helium', weight: 4.0026, symbol: 'He'},
-  {position: 3, name: 'Lithium', weight: 6.941, symbol: 'Li'},
-  {position: 4, name: 'Beryllium', weight: 9.0122, symbol: 'Be'},
-  {position: 5, name: 'Boron', weight: 10.811, symbol: 'B'},
-  {position: 6, name: 'Carbon', weight: 12.0107, symbol: 'C'},
-  {position: 7, name: 'Nitrogen', weight: 14.0067, symbol: 'N'},
-  {position: 8, name: 'Oxygen', weight: 15.9994, symbol: 'O'},
-  {position: 9, name: 'Fluorine', weight: 18.9984, symbol: 'F'},
-  {position: 10, name: 'Neon', weight: 20.1797, symbol: 'Ne'},
-];
 
 @Component({
   selector: 'app-list-maquina',
   templateUrl: './list-maquina.component.html',
   styleUrls: ['./list-maquina.component.css']
 })
+
 export class ListMaquinaComponent implements OnInit {
-  columns = [
-    {
-      columnDef: 'position',
-      header: 'No.',
-      cell: (element: any) => `${element.position}`,
-    },
-    {
-      columnDef: 'name',
-      header: 'Name',
-      cell: (element: any) => `${element.name}`,
-    },
-    {
-      columnDef: 'weight',
-      header: 'Weight',
-      cell: (element: any) => `${element.weight}`,
-    },
-    {
-      columnDef: 'symbol',
-      header: 'Symbol',
-      cell: (element: any) => `${element.symbol}`,
-    },
-  ];
-  dataSource = ELEMENT_DATA;
-  // displayedColumns = this.columns.map(c => c.columnDef);
-  displayedColumns = [ 'position', 'name', 'weight', 'symbol'];
-  constructor() { }
+  
+  dataSource: MatTableDataSource<Maquina>;
+  displayedColumns = [ 'nome', 'data', 'tipo', 'marca', 'modelo', 'acao'];
+  isLoadingResults = true;
+
+  @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
+  @ViewChild(MatSort, {static: true}) sort: MatSort;
+  
+  constructor(
+    private MaquinaService: MaquinaService,
+    public dialog: MatDialog,
+    private activatedRoute: ActivatedRoute,
+    ){ }
 
   ngOnInit() {
+
+    this.loadMaquinario();
+  }
+
+  applyFilter(filterValue: string) {
+    this.dataSource.filter = filterValue.trim().toLowerCase();
+
+    if (this.dataSource.paginator) {
+      this.dataSource.paginator.firstPage();
+    }
+  }
+
+  excluirItem(element){
+    const dialogRef = this.dialog.open(ConfirmDialogComponent, { width: '375px'});
+    dialogRef.componentInstance.title = element.nome;
+    dialogRef.componentInstance.message = "Gostaria realmente de excluir a entrada:" + element.nome;
+    dialogRef.afterClosed().subscribe(result => {
+      if(result)
+        this.remove(element)
+    });
+  }
+
+  remove(maquina: Maquina){
+    this.MaquinaService.delete(maquina.maquina_id).subscribe(() => {
+      this.isLoadingResults = true;
+      this.loadMaquinario();
+    });
+  }
+
+  openEditMaquina(maquina: Maquina){
+    const cadMaq = this.dialog.open(CadMaquinaComponent, { width: 'auto'});
+    cadMaq.componentInstance.editData(maquina)
+  }
+  openCadMaquina(maquina: Maquina){
+    const cadMaq = this.dialog.open(CadMaquinaComponent, { width: 'auto'});
+    cadMaq.afterClosed().subscribe(result =>{
+      // this.dataSource.data.push(result);
+      this.loadMaquinario();
+    });
+  }
+
+  loadMaquinario(){
+    this.MaquinaService.getAll().subscribe(
+      maquinas => {
+        this.dataSource = new MatTableDataSource<Maquina>(maquinas),
+        this.dataSource.paginator = this.paginator,
+        this.dataSource.sort = this.sort;
+        this.isLoadingResults = false;
+        this.dataSource.sort = this.sort;
+      }
+    );
   }
 
 }

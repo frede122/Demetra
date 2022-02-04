@@ -20,7 +20,7 @@ const routes: Routes = [
             { path: 'maquina',  children: [
                 { path: 'cad-maquina', component: CadMaquinaComponent  },
                 { path: 'cad-maquina/:id', component: CadMaquinaComponent },
-                { path: 'list-maquina', component: ListMaquinaComponent  },
+                { path: 'list-maquina', component: ListMaquinaComponent },
                 { path: '', component: ListMaquinaComponent, }
             ]}
         ]

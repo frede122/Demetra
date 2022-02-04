@@ -1,5 +1,6 @@
 import { DatePipe } from "@angular/common";
 import { Model } from "../model";
+import { ModeloMaquina } from "./modelo-maquina";
 
 export class Maquina extends Model {
     public modelo_maquina_id : number;
@@ -7,7 +8,7 @@ export class Maquina extends Model {
     public ano: any;
     public tipo: any;
     public maquina_id: number;
-
+    public modelo_maquina: ModeloMaquina
 
     // constructor(){
     //     super();

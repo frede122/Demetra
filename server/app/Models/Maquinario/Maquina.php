@@ -14,4 +14,8 @@ class Maquina extends Model
         'tipo',
         'modelo_maquina_id'
     ];
+
+    public function modeloMaquina(){
+        return $this->hasOne(ModeloMaquina::class, 'modelo_maquina_id', 'modelo_maquina_id');
+    }
 }

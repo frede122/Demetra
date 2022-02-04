@@ -2,3 +2,49 @@
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.mat-green {
+    transition: 1s;
+    color: white;
+    background-color: rgb(2, 145, 2);
+}
+.mat-green:hover {
+    color: white;
+    background-color: rgba(2, 145, 2, 0.829);
+}
+.mat-cancel {
+    transition: 1s;
+    color: white;
+    background-color: rgb(185, 52, 52);
+}
+.mat-cancel:hover {
+    color: white;
+    background-color: rgba(199, 87, 87, 0.829)
+}
+
+
+.field-375{
+    position: relative;
+    min-width: 375px;
+    margin: 0;
+    height: 50px;
+}
+.field-300{
+    position: relative;
+    min-width: 300px;
+    margin: 0;
+    height: 50px;
+}
+.field-262{
+    position: relative;
+    min-width: 262px;
+    margin: 0;
+    height: 50px;
+}
+.field-225{
+    position: relative;
+    min-width: 225px;
+    margin: 0;
+    height: 50px;
+}
+

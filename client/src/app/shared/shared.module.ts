@@ -13,6 +13,7 @@ import { MainComponent } from './main/main.component';
 import { MenuComponent } from './components/menu/menu.component';
 import { PostitComponent } from './components/postit/postit.component';
 import { BrowserModule } from '@angular/platform-browser';
+import { ConfirmDialogComponent } from './components/confirm-dialog/confirm-dialog.component';
 
 
 
@@ -20,7 +21,8 @@ import { BrowserModule } from '@angular/platform-browser';
   declarations: [
     MainComponent, 
     MenuComponent, 
-    PostitComponent,
+    PostitComponent, 
+    ConfirmDialogComponent,
   ],
   imports: [
     CommonModule,
@@ -31,6 +33,10 @@ import { BrowserModule } from '@angular/platform-browser';
     MatIconModule,
     MatListModule,
     MatExpansionModule,
-  ]
+    
+  ],
+  entryComponents: [
+    ConfirmDialogComponent
+  ],
 })
 export class SharedModule { }
