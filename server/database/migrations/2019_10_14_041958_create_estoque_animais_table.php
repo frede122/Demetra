@@ -15,11 +15,11 @@ class CreateEstoqueAnimaisTable extends Migration
     {
         Schema::create('estoque_animais', function (Blueprint $table) {
             $table->engine='InnoDb';
-            $table->bigIncrements('estoque_animal_id');
+            $table->bigIncrements('id');
             $table->date('mes_referencia');
             $table->year('ano_referencia');
             $table->unsignedBigInteger('animal_id');
-            $table->foreign('animal_id')->references('animal_id')->on('animais')->onUpdate('cascade')->onDelete('cascade');
+            $table->foreign('animal_id')->references('id')->on('animais')->onUpdate('cascade')->onDelete('cascade');
             $table->integer('quantidade');
             $table->timestamps();
         });

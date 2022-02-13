@@ -15,7 +15,7 @@ class CreateFornecedoresTable extends Migration
     {
         Schema::create('fornecedores', function (Blueprint $table) {
             $table->engine='InnoDb';
-            $table->bigIncrements('fornecedor_id');
+            $table->bigIncrements('id');
             $table->string('nome', 50);
             $table->string('cpf_cnpj', 20);
             $table->string('endereco', 150);

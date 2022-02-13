@@ -15,19 +15,19 @@ class CreateDebitosTable extends Migration
     {
         Schema::create('debitos', function (Blueprint $table) {
             $table->engine='InnoDb';
-            $table->bigIncrements('debito_id');
+            $table->bigIncrements('id');
             $table->unsignedBigInteger('docs_id');
-            $table->foreign('docs_id')->references('docs_id')->on('docs')->onUpdate('cascade')->onDelete('cascade');
+            $table->foreign('docs_id')->references('id')->on('docs')->onUpdate('cascade')->onDelete('cascade');
             $table->string('data', 50);
             $table->unsignedBigInteger('fornecedor_id');
-            $table->foreign('fornecedor_id')->references('fornecedor_id')->on('fornecedores')->onUpdate('cascade')->onDelete('cascade');
+            $table->foreign('fornecedor_id')->references('id')->on('fornecedores')->onUpdate('cascade')->onDelete('cascade');
             $table->string('descricao', 50);
             $table->integer('quantidade');
             $table->integer('valor_unitario');
             $table->unsignedBigInteger('setor_id');
-            $table->foreign('setor_id')->references('setor_id')->on('setores')->onUpdate('cascade')->onDelete('cascade');
+            $table->foreign('setor_id')->references('id')->on('setores')->onUpdate('cascade')->onDelete('cascade');
             $table->unsignedBigInteger('sub_categoria_id');
-            $table->foreign('sub_categoria_id')->references('sub_categoria_id')->on('sub_categorias')->onUpdate('cascade')->onDelete('cascade');
+            $table->foreign('sub_categoria_id')->references('id')->on('sub_categorias')->onUpdate('cascade')->onDelete('cascade');
             $table->timestamps();
         });
     }

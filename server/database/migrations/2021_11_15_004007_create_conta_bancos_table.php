@@ -15,7 +15,7 @@ class CreateContaBancosTable extends Migration
     {
         Schema::create('conta_bancos', function (Blueprint $table) {
             $table->engine='InnoDb';
-            $table->bigIncrements('conta_banco_id');
+            $table->bigIncrements('id');
             $table->string('titular');
             $table->string('cpf_cnpj');
             $table->bigInteger('ag');
@@ -24,7 +24,7 @@ class CreateContaBancosTable extends Migration
             $table->string('chave_pix');
             $table->bigInteger('tipo_chave');
             $table->unsignedBigInteger('banco_id');
-            $table->foreign('banco_id')->references('banco_id')->on('bancos')->onUpdate('cascade')->onDelete('cascade');
+            $table->foreign('banco_id')->references('id')->on('bancos')->onUpdate('cascade')->onDelete('cascade');
             $table->timestamps();
         });
     }

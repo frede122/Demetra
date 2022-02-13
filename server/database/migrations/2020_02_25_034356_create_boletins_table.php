@@ -14,7 +14,7 @@ class CreateBoletinsTable extends Migration
     public function up()
     {
         Schema::create('boletins', function (Blueprint $table) {
-            $table->bigIncrements('boletim_id');
+            $table->bigIncrements('id');
             $table->string('nome_boletim', 50);
             $table->timestamps();
         });

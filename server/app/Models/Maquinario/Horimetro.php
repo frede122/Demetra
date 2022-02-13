@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Horimetro extends Model
 {
-    protected $primaryKey = 'horimetro_id';
+    protected $primaryKey = 'id';
 
     protected $fillable = [
         'maquina_id',

@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class MarcaMaquina extends Model
 {
-    protected $primaryKey = 'marca_maquina_id';
+    protected $primaryKey = 'id';
 
     protected $fillable = [
         'nome'

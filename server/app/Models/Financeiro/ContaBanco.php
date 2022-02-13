@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class ContaBanco extends Model
 {
-    protected $primaryKey = 'conta_banco_id';
+    protected $primaryKey = 'id';
 
     protected $fillable = [
         'titular',

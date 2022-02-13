@@ -15,7 +15,7 @@ class CreateBancosTable extends Migration
     {
         Schema::create('bancos', function (Blueprint $table) {
             $table->engine='InnoDb';
-            $table->bigIncrements('banco_id');
+            $table->bigIncrements('id');
             $table->string('nome');
             $table->integer('codigo');
             $table->timestamps();
