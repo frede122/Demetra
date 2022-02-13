@@ -7,6 +7,8 @@ import { MainComponent } from './shared/main/main.component';
 import { MenuComponent } from './shared/components/menu/menu.component';
 import { CadMaquinaComponent } from './maquinario/maquina/cad-maquina/cad-maquina.component';
 import { ListMaquinaComponent } from './maquinario/maquina/list-maquina/list-maquina.component';
+import { CadAbastecimentoComponent } from './maquinario/abastecimento/cad-abastecimento/cad-abastecimento.component';
+import { ListAbastecimentoComponent } from './maquinario/abastecimento/list-abastecimento/list-abastecimento.component';
 
 
 const routes: Routes = [
@@ -18,14 +20,13 @@ const routes: Routes = [
         children: [
             { path: 'doc', component: DocComponent, canActivate: [AuthGuard] },
             { path: 'maquina',  children: [
-                { path: 'cad-maquina', component: CadMaquinaComponent  },
-                { path: 'cad-maquina/:id', component: CadMaquinaComponent },
                 { path: 'list-maquina', component: ListMaquinaComponent },
+                { path: 'list-abastecimento', component: ListAbastecimentoComponent },
                 { path: '', component: ListMaquinaComponent, }
             ]}
         ]
     },
-    { path: '',   redirectTo: '/login', pathMatch: 'full' },
+    { path: '',   redirectTo: '/main', pathMatch: 'full' },
     // { path: '/*',  redirectTo: '/main'}
 ];
 

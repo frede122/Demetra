@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class TipoMaquina extends Model
 {
-    protected $primaryKey = 'tipo_maquina_id';
+    protected $primaryKey = 'id';
 
     protected $fillable = [
         'nome'

@@ -1,0 +1,67 @@
+<div class="container-table mat-elevation-z8">
+    <div class="loading-shade" *ngIf="isLoadingResults || isRateLimitReached">
+      <mat-spinner *ngIf="isLoadingResults"></mat-spinner>
+    </div>
+    
+    <mat-form-field>
+      <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filtro de pesquisa">
+    </mat-form-field>
+    <!-- <button routerLink="/main/maquina/cad-maquina"  class="button-add" mat-fab color="darkgreen"> -->
+    <button (click)="openCadAbastecimento()"  class="button-add" mat-fab color="darkgreen">
+      <mat-icon>add</mat-icon>
+    </button>
+    <table mat-table [dataSource]="dataSource" matSort>
+      
+  
+      <ng-container matColumnDef="maquina">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Maquina </th>
+        <td mat-cell *matCellDef="let element"> {{element.maquina}} </td>
+      </ng-container>
+      <ng-container matColumnDef="litros">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Litros </th>
+        <td mat-cell *matCellDef="let element"> {{element.litros}} </td>
+      </ng-container>
+      <ng-container matColumnDef="data">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Data </th>
+        <td mat-cell *matCellDef="let element"> {{element.data | date: 'longDate'}} </td>
+      </ng-container>
+      <ng-container matColumnDef="hora">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Hora </th>
+        <td mat-cell *matCellDef="let element"> {{ element.hora | time }} </td>
+      </ng-container>
+  
+      <ng-container matColumnDef="horimetro">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Horimetro </th>
+        <td mat-cell *matCellDef="let element"> {{element.horimetro}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="acao">
+        <th mat-header-cell *matHeaderCellDef>  </th>
+        <td mat-cell *matCellDef="let element"> 
+          <button mat-icon-button [matMenuTriggerFor]="menu" color="green2" aria-label="menu">
+            <mat-icon>more_vert</mat-icon>
+          </button>
+          <mat-menu id="menu" #menu="matMenu">
+            
+            <button mat-menu-item (click)="openEditAbastecimento(element)">
+              <mat-icon>edit</mat-icon>
+              <span>Editar</span>
+            </button>
+            <button (click)="excluirItem(element)" mat-menu-item>
+              <mat-icon  class="delete">delete</mat-icon>
+              <span>Excluir</span>
+            </button>
+            <button mat-menu-item>
+              <mat-icon>pie_chart</mat-icon>
+              <span>Relatorio de Desempenho</span>
+            </button>
+          </mat-menu>
+        </td>
+  
+      </ng-container>
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+    <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+  </div>
+      

@@ -16,9 +16,9 @@ class CreateAbastecimentosTable extends Migration
         Schema::create('abastecimentos', function (Blueprint $table) {
 
             $table->engine='InnoDb';
-            $table->bigIncrements('abastecimento_id');
+            $table->bigIncrements('id');
             $table->unsignedBigInteger('maquina_id');
-            $table->foreign('maquina_id')->references('maquina_id')->on('maquinas')->onUpdate('cascade')->onDelete('cascade');
+            $table->foreign('maquina_id')->references('id')->on('maquinas')->onUpdate('cascade')->onDelete('cascade');
             $table->float('litros');
             $table->date('data');
             $table->date('hora');

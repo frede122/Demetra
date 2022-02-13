@@ -15,7 +15,7 @@ class CreateAnimalsTable extends Migration
     {
         Schema::create('animais', function (Blueprint $table) {
             $table->engine='InnoDb';
-            $table->bigIncrements('animal_id');
+            $table->bigIncrements('id');
             $table->string('nome');
             $table->string('raca');
             $table->string('epecie');

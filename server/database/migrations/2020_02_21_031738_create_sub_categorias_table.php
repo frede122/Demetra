@@ -15,10 +15,10 @@ class CreateSubCategoriasTable extends Migration
     {
         Schema::create('sub_categorias', function (Blueprint $table) {
             $table->engine='InnoDb';
-            $table->bigIncrements('sub_categoria_id');
+            $table->bigIncrements('id');
             $table->string('nome_subcategoria', 50);
             $table->unsignedBigInteger('categoria_id');
-            $table->foreign('categoria_id')->references('categoria_id')->on('categorias')->onUpdate('cascade')->onDelete('cascade');
+            $table->foreign('categoria_id')->references('id')->on('categorias')->onUpdate('cascade')->onDelete('cascade');
 
             $table->timestamps();
         });

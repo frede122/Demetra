@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Manutencao extends Model
 {
-    protected $primaryKey = 'manutencao_id';
+    protected $primaryKey = 'id';
     protected $table = 'manutencoes';
     protected $fillable = [
         'maquina_id',

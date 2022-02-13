@@ -16,12 +16,12 @@ class CreateMaquinasTable extends Migration
         Schema::create('maquinas', function (Blueprint $table) {
 
             $table->engine='InnoDb';
-            $table->bigIncrements('maquina_id');
+            $table->bigIncrements('id');
             $table->string('nome', 100);
             $table->date('ano');
             $table->string('tipo', 50);
             $table->unsignedBigInteger('modelo_maquina_id');
-            $table->foreign('modelo_maquina_id')->references('modelo_maquina_id')->on('modelo_maquinas')->onUpdate('cascade')->onDelete('cascade');
+            $table->foreign('modelo_maquina_id')->references('id')->on('modelo_maquinas')->onUpdate('cascade')->onDelete('cascade');
 
             $table->timestamps();
         });

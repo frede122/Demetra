@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Maquina extends Model
 {
-    protected $primaryKey = 'maquina_id';
+    protected $primaryKey = 'id';
 
     protected $fillable = [
         'nome',
@@ -16,6 +16,6 @@ class Maquina extends Model
     ];
 
     public function modeloMaquina(){
-        return $this->hasOne(ModeloMaquina::class, 'modelo_maquina_id', 'modelo_maquina_id');
+        return $this->hasOne(ModeloMaquina::class, 'id', 'modelo_maquina_id');
     }
 }

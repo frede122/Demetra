@@ -15,7 +15,7 @@ class CreateTipoMaquinasTable extends Migration
     {
         Schema::create('tipo_maquinas', function (Blueprint $table) {
             $table->engine='InnoDb';
-            $table->bigIncrements('tipo_maquina_id');
+            $table->bigIncrements('id');
             $table->string('nome', 100);
 
             $table->timestamps();
