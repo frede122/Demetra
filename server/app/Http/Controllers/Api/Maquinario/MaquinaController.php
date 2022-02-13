@@ -18,7 +18,5 @@ class MaquinaController extends MasterApiController
         }else{
             return response()->json($data);
         }
-           
-
     }
 }
