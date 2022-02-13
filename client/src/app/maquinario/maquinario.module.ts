@@ -27,14 +27,25 @@ import { ListMaquinaComponent } from './maquina/list-maquina/list-maquina.compon
 import { RouterModule } from '@angular/router';
 import { TipoMaquinaComponent } from './maquina/tipo-maquina/tipo-maquina.component';
 
+import { CadAbastecimentoComponent } from './abastecimento/cad-abastecimento/cad-abastecimento.component';
+import { TimePipe } from '../pipes/time.pipe';
+
 
 
 @NgModule({
   declarations: [
+    TimePipe,
     CadMaquinaComponent, 
     MarcaMaquinaComponent, 
     ModeloMaquinaComponent, 
-    ListMaquinaComponent, TipoMaquinaComponent
+    ListMaquinaComponent, 
+    TipoMaquinaComponent, 
+    ListAbastecimentoComponent, 
+    ListManutencaoComponent, 
+    ListHorimetroComponent, 
+    CadHorimetroComponent, 
+    CadManutencaoComponent, 
+    CadAbastecimentoComponent
   ],
   imports: [
     CommonModule,
@@ -60,7 +71,9 @@ import { TipoMaquinaComponent } from './maquina/tipo-maquina/tipo-maquina.compon
     MarcaMaquinaComponent,
     CadMaquinaComponent,
     ModeloMaquinaComponent,
-    TipoMaquinaComponent
+    TipoMaquinaComponent,
+    CadAbastecimentoComponent,
+    CadHorimetroComponent
   ],
 })
 export class MaquinarioModule { }
