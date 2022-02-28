@@ -11,4 +11,12 @@ class ManutencaoController extends MasterApiController
     {
         $this->models = $manutencao;
     }
+
+    public function where($paramet){
+        $data = $this->models->where('maquina_id', $paramet)->get();
+        if(!$data){
+            return response()->json(['Error' => 'Not Found'], 404);
+        }
+        return response()->json($data);
+    }
 }

@@ -25,11 +25,13 @@ Route::group([
 
             Route::apiResource('abastecimento', 'AbastecimentoController');
             Route::apiResource('manutencao', 'ManutencaoController');
+            Route::get('manutencao/whereMaquina/{paramet}', 'ManutencaoController@where');
             Route::apiResource('horimetro', 'HorimetroController');
             Route::apiResource('maquina', 'MaquinaController');
             Route::apiResource('marca-maquina', 'MarcaMaquinaController');
             Route::apiResource('modelo-maquina', 'ModeloMaquinaController');
             Route::apiResource('tipo-maquina', 'TipoMaquinaController');
+
         });
 
     Route::namespace('Pecuaria')->group(function (){

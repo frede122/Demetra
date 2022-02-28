@@ -14,4 +14,10 @@ class Manutencao extends Model
         'valor',
         'descricao'
     ];
+
+    protected $with = 'maquina';
+
+    public function maquina(){
+        return $this->hasOne(Maquina::class, 'id', 'maquina_id');
+    }
 }
