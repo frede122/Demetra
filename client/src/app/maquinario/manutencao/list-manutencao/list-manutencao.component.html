@@ -1,0 +1,78 @@
+<form class="maquina-form">
+  <label>Maquina Selecionada:  </label>
+  <mat-form-field color="outgreen" >
+    <input type="text" style="width: 100%;" class="full-width" placeholder="Maquina" aria-label="Maquina" matInput [formControl]="maquinaControl" [matAutocomplete]="auto">
+    <mat-autocomplete (optionSelected)="searchManutencao($event)" #auto="matAutocomplete" [displayWith]="displayFn">
+      <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+          {{option.nome}}
+      </mat-option>
+    </mat-autocomplete>
+  </mat-form-field>
+</form>
+<div class="container-table mat-elevation-z8">
+    <div class="loading-shade" *ngIf="isLoadingResults || isRateLimitReached">
+      <mat-spinner *ngIf="isLoadingResults"></mat-spinner>
+    </div>
+    
+
+    
+    <mat-form-field color="outgreen">
+      <input matInput  (keyup)="applyFilter($event.target.value)" placeholder="Filtro de pesquisa">
+    </mat-form-field>
+    
+    <button (click)="openCadManutencao()"  class="button-add" mat-fab color="darkgreen">
+      <mat-icon>add</mat-icon>
+      <label>Novo!</label>
+    </button>
+
+    <table mat-table [dataSource]="dataSource" matSort>
+        <ng-container matColumnDef="data">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Data </th>
+            <td mat-cell *matCellDef="let element"> {{element.data | date: 'longDate'}} </td>
+        </ng-container>     
+  
+        <ng-container matColumnDef="maquina">
+            <th mat-header-cell *matHeaderCellDef> Maquina </th>
+            <td mat-cell *matCellDef="let element"> {{element.maquina.nome}} </td>
+        </ng-container>
+        <ng-container matColumnDef="descricao">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Descrição</th>
+            <td mat-cell *matCellDef="let element"> {{element.descricao}} </td>
+        </ng-container>
+
+  
+      <ng-container matColumnDef="custo">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Custo </th>
+        <td mat-cell *matCellDef="let element"> {{element.valor}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="acao">
+        <th mat-header-cell *matHeaderCellDef>  </th>
+        <td mat-cell *matCellDef="let element"> 
+          <button mat-icon-button [matMenuTriggerFor]="menu" color="green2" aria-label="menu">
+            <mat-icon>more_vert</mat-icon>
+          </button>
+          <mat-menu id="menu" #menu="matMenu">
+            
+            <button mat-menu-item (click)="openEditManutencao(element)">
+              <mat-icon>edit</mat-icon>
+              <span>Editar</span>
+            </button>
+            <button (click)="excluirItem(element)" mat-menu-item>
+              <mat-icon  class="delete">delete</mat-icon>
+              <span>Excluir</span>
+            </button>
+            <button mat-menu-item>
+              <mat-icon>pie_chart</mat-icon>
+              <span>Relatorio de Desempenho</span>
+            </button>
+          </mat-menu>
+        </td>
+  
+      </ng-container>
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+    <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+  </div>
+      

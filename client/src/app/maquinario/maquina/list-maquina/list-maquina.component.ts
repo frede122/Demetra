@@ -1,5 +1,4 @@
 import { AfterViewInit, Component, Inject, OnInit, ViewChild } from '@angular/core';
-import { MaquinaService } from 'src/app/service/maquinario/maquina.service';
 import {MatPaginator} from '@angular/material/paginator';
 import { MatDialog, MatSort, Sort, MatTableDataSource} from '@angular/material';
 import { Maquina } from 'src/app/models/maquinario/Maquina';
@@ -7,6 +6,7 @@ import { ConfirmDialogComponent } from 'src/app/shared/components/confirm-dialog
 import { LiveAnnouncer } from '@angular/cdk/a11y';
 import { CadMaquinaComponent } from '../cad-maquina/cad-maquina.component';
 import { ActivatedRoute } from '@angular/router';
+import { MaquinaService } from 'src/app/service/maquinario/maquina/maquina.service';
 
 
 

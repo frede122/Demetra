@@ -21,14 +21,13 @@ import { LoginModule } from './login/login.module';
 import { FinanceiroModule } from './financeiro/financeiro.module';
 import { SharedModule } from './shared/shared.module';
 import { MaquinarioModule } from './maquinario/maquinario.module';
-import { MatProgressSpinnerModule } from '@angular/material';
 
 
 registerLocaleData(localePt);
 
 @NgModule({
   declarations: [
-    AppComponent,
+    AppComponent
   ],
   imports: [
 

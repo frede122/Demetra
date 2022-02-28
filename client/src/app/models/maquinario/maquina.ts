@@ -18,7 +18,8 @@ export class Maquina extends Model {
         modelo_maquina_id: number, 
         nome: string, 
         ano: Date, 
-        tipo: string
+        tipo: string,
+        id? : number
     ){
         
         super();
@@ -26,6 +27,7 @@ export class Maquina extends Model {
         this.nome = nome;
         this.ano = ano
         this.tipo = tipo
+        this.id = id
     }
 
 }

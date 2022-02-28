@@ -9,6 +9,7 @@ import { CadMaquinaComponent } from './maquinario/maquina/cad-maquina/cad-maquin
 import { ListMaquinaComponent } from './maquinario/maquina/list-maquina/list-maquina.component';
 import { CadAbastecimentoComponent } from './maquinario/abastecimento/cad-abastecimento/cad-abastecimento.component';
 import { ListAbastecimentoComponent } from './maquinario/abastecimento/list-abastecimento/list-abastecimento.component';
+import { ListManutencaoComponent } from './maquinario/manutencao/list-manutencao/list-manutencao.component';
 
 
 const routes: Routes = [
@@ -22,6 +23,7 @@ const routes: Routes = [
             { path: 'maquina',  children: [
                 { path: 'list-maquina', component: ListMaquinaComponent },
                 { path: 'list-abastecimento', component: ListAbastecimentoComponent },
+                { path: 'list-manutenção', component: ListManutencaoComponent },
                 { path: '', component: ListMaquinaComponent, }
             ]}
         ]
