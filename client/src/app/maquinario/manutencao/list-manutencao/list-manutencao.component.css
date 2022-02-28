@@ -1,0 +1,107 @@
+.container-table {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 80%;
+    margin: 20px auto;
+    padding: 10px 0px;
+    position: relative;
+}
+
+.mat-form-field {
+    font-size: 14px;
+    width: 90%;
+}
+
+table {
+    width: 100%;
+}
+.loading-shade {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 56px;
+    right: 0;
+    background: rgba(0, 0, 0, 0.15);
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.maquina-form{
+    margin-top: 15px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.maquina-form mat-form-field{
+    width: 30%;
+}
+
+.maquina-form label{
+    color:rgb(49, 49, 49);
+    font-size: 0.8em;
+}
+
+.mat-form-field-appearance-legacy .mat-form-field-wrapper{
+    width: 100% !important;
+}
+.mat-green2{
+    color: rgb(6, 146, 6);
+}
+
+.mat-darkgreen{
+    color: white;
+    background-color: rgb(2, 145, 2);
+}
+.mat-darkgreen:hover {
+    color: white;
+    background-color: rgba(2, 145, 2, 0.829);
+}
+
+.button-add{
+    position: absolute;
+    top: -15px;
+    right: -15px;
+    width: 60px;
+    height: 60px;
+    
+}
+.button-add label{
+    position: absolute;
+    color: green;
+    top: 60px;
+    left: 0px;
+    font-weight: 300;
+    
+}
+
+
+.mat-menu-item mat-icon {
+    color: rgba(6, 146, 6, 0.55);
+    transition: 1s;
+}
+.mat-menu-item mat-icon.delete {
+    color: rgba(146, 6, 6, 0.55);
+    transition: 1s;
+}
+
+.mat-green2:hover {
+    color: rgb(18, 160, 18);
+    background-color: rgba(167, 221, 167, 0.349);
+}
+
+.mat-menu-item:hover { font-weight: 500;}
+
+.mat-menu-item:hover mat-icon {
+    color: rgb(6, 146, 6);
+    transition: 0.5s;
+}
+
+.mat-menu-item:hover mat-icon.delete {
+    color: rgb(146, 6, 6);
+}
+

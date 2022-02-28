@@ -1,0 +1,39 @@
+<form [formGroup]="form" class="card-content">
+    <h2>{{isNew ? 'Cadastrar' : 'Alterar'}} Manutenção</h2>
+    <p>
+        <mat-form-field class="field-180" color="outgreen" appearance="standard">
+            <mat-label>Maquina</mat-label>
+            <mat-select formControlName="maquina" required>
+                <mat-option>--</mat-option>
+                <mat-option *ngFor="let maquina of maquinas" [value]="maquina">
+                    {{maquina.nome}}
+                </mat-option>
+            </mat-select>
+            <mat-error *ngIf="form.hasError('required')">Por favor escolha um tipo de maquinario</mat-error>
+            <mat-hint>{{form.value.maquina.id}}</mat-hint>
+        </mat-form-field>
+        <mat-form-field class="field-140" color="outgreen">
+            <input matInput type="number" placeholder="Horimetro" formControlName="horimetro" min="1">
+        </mat-form-field>
+        <mat-form-field class="field-140" color="outgreen">
+            <input matInput type="number" placeholder="Valor" formControlName="valor" min="1">
+        </mat-form-field>
+
+    </p>
+    <div fxLayout="row" >
+        <mat-form-field class="field-180" color="outgreen" appearance="standard">
+            <mat-label>Data do Abastecimento</mat-label>
+            <input matInput  formControlName="data" [matDatepicker]="picker">
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker ></mat-datepicker>
+        </mat-form-field>
+
+    </div>
+    <p>
+        <mat-form-field class="field-225" color="outgreen">
+            <input matInput type="text" placeholder="Descrição" formControlName="descricao" min="1">
+        </mat-form-field>
+    </p>
+
+    <button class="button-salvar" mat-raised-button (click)="isNew ? save() : update()" class="button-80" color="green">{{isNew ? 'Salvar' : 'Alterar'}}</button>
+</form>

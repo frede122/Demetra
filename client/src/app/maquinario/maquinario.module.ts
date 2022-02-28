@@ -16,7 +16,8 @@ import {
   MatMenuModule,
   MatPaginatorModule,
   MatProgressSpinnerModule,
-  MatSortModule
+  MatSortModule,
+  MatAutocompleteModule
   
 } from '@angular/material';
 
@@ -27,7 +28,10 @@ import { ListMaquinaComponent } from './maquina/list-maquina/list-maquina.compon
 import { RouterModule } from '@angular/router';
 import { TipoMaquinaComponent } from './maquina/tipo-maquina/tipo-maquina.component';
 import { ListAbastecimentoComponent } from './abastecimento/list-abastecimento/list-abastecimento.component';
-
+import { ListManutencaoComponent } from './manutencao/list-manutencao/list-manutencao.component';
+import { ListHorimetroComponent } from './servicos/list-horimetro/list-horimetro.component';
+import { CadHorimetroComponent } from './servicos/cad-horimetro/cad-horimetro.component';
+import { CadManutencaoComponent } from './manutencao/cad-manutencao/cad-manutencao.component';
 import { CadAbastecimentoComponent } from './abastecimento/cad-abastecimento/cad-abastecimento.component';
 import { TimePipe } from '../pipes/time.pipe';
 
@@ -65,6 +69,7 @@ import { TimePipe } from '../pipes/time.pipe';
     MatPaginatorModule,    
     MatProgressSpinnerModule,
     MatSortModule,
+    MatAutocompleteModule,
     FormsModule,
     RouterModule
   ],
@@ -74,7 +79,8 @@ import { TimePipe } from '../pipes/time.pipe';
     ModeloMaquinaComponent,
     TipoMaquinaComponent,
     CadAbastecimentoComponent,
-    CadHorimetroComponent
+    CadHorimetroComponent,
+    CadManutencaoComponent
   ],
 })
 export class MaquinarioModule { }

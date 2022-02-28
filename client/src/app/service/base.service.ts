@@ -12,6 +12,7 @@ import { Model } from '../models/model';
 export class BaseService<t extends Model> {
   private url = environment.apiUrl;
   public route = "";
+  public where = "";
 
   constructor(public http: HttpClient) {}
 
@@ -21,6 +22,11 @@ export class BaseService<t extends Model> {
 
   public getById(id: string): Observable<t>{
     return this.http.get<t>(`${this.url}/${this.route}/${id}`)
+  }
+
+  public getByWhere(parament: string): Observable<t[]>{
+    // alert(`${this.url}/${this.route}/${this.where}/${parament}`)
+    return this.http.get<t[]>(`${this.url}/${this.route}/${this.where}/${parament}`)
   }
 
   public getAll(): Observable<t[]>{

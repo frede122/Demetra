@@ -43,13 +43,3 @@ mat-icon {
     color: white;
 }
 
-.field-262 {
-    min-width: 50px !important;
-}
-
-.line {
-    display: flex;
-    flex-wrap: nowrap;
-    justify-content: center;
-    align-items: center;
-}
