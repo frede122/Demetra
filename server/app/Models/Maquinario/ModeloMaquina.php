@@ -10,6 +10,7 @@ class ModeloMaquina extends Model
 
     protected $fillable = [
         'marca_maquina_id',
+        'tipo_maquina_id',
         'nome'
     ];
 }

@@ -19,6 +19,8 @@ class CreateModeloMaquinasTable extends Migration
             $table->bigIncrements('id');
             $table->unsignedBigInteger('marca_maquina_id');
             $table->foreign('marca_maquina_id')->references('id')->on('marca_maquinas')->onUpdate('cascade')->onDelete('cascade');
+            $table->unsignedBigInteger('tipo_maquina_id');
+            $table->foreign('tipo_maquina_id')->references('id')->on('tipo_maquinas')->onUpdate('cascade')->onDelete('cascade');
             $table->string('nome', 100);
 
             $table->timestamps();
