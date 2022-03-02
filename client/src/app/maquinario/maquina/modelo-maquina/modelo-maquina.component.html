@@ -7,7 +7,7 @@
       <mat-label>Marca de Maquinario</mat-label>
       <mat-select formControlName="marca" required>
           <mat-option>--</mat-option>
-          <mat-option *ngFor="let marca of marcaMaquinas" [value]="marca.marca_maquina_id">
+          <mat-option *ngFor="let marca of marcaMaquinas" [value]="marca.id">
               {{marca.nome}}
           </mat-option>
       </mat-select>
